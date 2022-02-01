@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+ <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/assets/css/styles.css" media="screen">
+  
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html" id="logo">Lattitude</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- use ms-auto to align Bootstrap 5 navbar items to right -->
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Plots
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/visualizations/temp.html">Max Temperature</a></li>
+                        <li><a class="dropdown-item" href="/visualizations/humidity.html">Humidity</a></li>
+                        <li><a class="dropdown-item" href="/visualizations/cloudiness.html">Cloudiness</a></li>
+                        <li><a class="dropdown-item" href="/visualizations/wind.html">Wind Speed</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/comparison.html">Comparison</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/data.html">Data</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="description-header">Summary: Latitude vs. X</h1>
+            <hr class="description-hr" />
+            <img src="/assets/images/Fig1.png" alt="" id="description-image" />
+            <p>The purpose of this homework was to analyze how weather changes as you get closer to the
+                equator. To
+                accomplish this analysis, I pulled data from the OpenWeatherMap API to assemble a
+                dataset on over
+                500 cities.</p>
+            <p>After assembling the dataset, I used Visual code to plot various aspects of the weather vs.
+                latitude.
+                Factors included: temperature, cloudiness, wind speed, and humidity. This site
+                provides the
+                source data and visualizations created as part of the analysis, as well as explanations and
+                descriptions
+                of any trends and correlations witnessed.</p>
+        </div>
+        <div class="col-md-4">
+            <h1 class="description-header">Visualizations</h1>
+            <table class="table">
+                <tr style="font-size:14px">
+                    <td>Latitude vs. Max Temperature<br />
+                        <a href="/visualizations/temp.html">
+                            <img src="/assets/images/Fig1.png" alt="" class="imageNav-photo"></a>
+                    </td>
+                    <td>Latitude vs. Humidity<br />
+                        <a href="/visualizations/humidity.html"><img src="/assets/images/Fig2.png" alt=""
+                                class="imageNav-photo"></a>
+                    </td>
+                </tr>
+                <tr style="font-size:14px">
+                    <td>Latitude vs. Cloudiness<br />
+                        <a href="/visualizations/cloudiness.html"><img src="/assets/images/Fig3.png" alt=""
+                                class="imageNav-photo"></a>
+                    </td>
+                    <td>Latitude vs. Wind Speed<br />
+                        <a href="/visualizations/wind.html"><img src="/assets/images/Fig4.png" alt=""
+                                class="imageNav-photo"></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+crossorigin="anonymous"></script>
+
+</body>
+</html>
