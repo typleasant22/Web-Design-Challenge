@@ -1,124 +1,60 @@
 # Web-Design-Challenge
-# Web Scraping Homework - Mission to Mars
+# Web Design Homework
+Latitude - Latitude Analysis Dashboard with Attitude
+For this homework we'll be creating a visualization dashboard website using visualizations we've created in a past assignment. Specifically, we'll be plotting weather data.
+In building this dashboard, we'll create individual pages for each plot and a means by which we can navigate between them. These pages will contain the visualizations and their corresponding explanations. We'll also have a landing page, a page where we can see a comparison of all of the plots, and another page where we can view the data used to build them.
 
-![mission_to_mars](Images/mission_to_mars.png)
+Website Requirements
+For reference, see the "Screenshots" section below.
+The website must consist of 7 pages total, including:
 
-In this assignment, you will build a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. The following outlines what you need to do.
+A landing page containing:
 
-### Before You Begin
+An explanation of the project.
+Links to each visualizations page. There should be a sidebar containing preview images of each plot, and clicking an image should take the user to that visualization.
 
-1. Create a new repository for this project called `web-scraping-challenge`. **Do not add this homework to an existing repository**.
 
-2. Clone the new repository to your computer.
+Four visualization pages, each with:
 
-3. Inside your local git repository, create a directory for the web scraping challenge. Use a folder name to correspond to the challenge: **Missions_to_Mars**.
+A descriptive title and heading tag.
+The plot/visualization itself for the selected comparison.
+A paragraph describing the plot and its significance.
 
-4. Add your notebook files to this folder as well as your flask app.
 
-5. Push the above changes to GitHub or GitLab.
+A "Comparisons" page that:
 
-## Step 1 - Scraping
+Contains all of the visualizations on the same page so we can easily visually compare them.
+Uses a Bootstrap grid for the visualizations.
 
-Complete your initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter.
+The grid must be two visualizations across on screens medium and larger, and 1 across on extra-small and small screens.
 
-* Create a Jupyter Notebook file called `mission_to_mars.ipynb` and use this to complete all of your scraping and analysis tasks. The following outlines what you need to scrape.
 
-### NASA Mars News
 
-* Scrape the [Mars News Site](https://redplanetscience.com/) and collect the latest News Title and Paragraph Text. Assign the text to variables that you can reference later.
 
-```python
-# Example:
-news_title = "NASA's Next Mars Mission to Investigate Interior of Red Planet"
+A "Data" page that:
 
-news_p = "Preparation of NASA's next spacecraft to Mars, InSight, has ramped up this summer, on course for launch next May from Vandenberg Air Force Base in central California -- the first interplanetary launch in history from America's West Coast."
-```
+Displays a responsive table containing the data used in the visualizations.
 
-### JPL Mars Space Images - Featured Image
+The table must be a bootstrap table component. Hint
 
-* Visit the url for the Featured Space Image site [here](https://spaceimages-mars.com).
+The data must come from exporting the .csv file as HTML, or converting it to HTML. Try using a tool you already know, pandas. Pandas has a nifty method approprately called to_html that allows you to generate a HTML table from a pandas dataframe. See the documentation here
 
-* Use splinter to navigate the site and find the image url for the current Featured Mars Image and assign the url string to a variable called `featured_image_url`.
+The website must, at the top of every page, have a navigation menu that:
 
-* Make sure to find the image url to the full size `.jpg` image.
+Has the name of the site on the left of the nav which allows users to return to the landing page from any page.
+Contains a dropdown menu on the right of the navbar named "Plots" that provides a link to each individual visualization page.
+Provides two more text links on the right: "Comparisons," which links to the comparisons page, and "Data," which links to the data page.
+Is responsive (using media queries). The nav must have similar behavior as the screenshots "Navigation Menu" section (notice the background color change).
 
-* Make sure to save a complete url string for this image.
+Finally, the website must be deployed to GitHub pages.
+When finished, submit to BootcampSpot the links to 1) the deployed app and 2) the GitHub repository.
+Ensure your repository has regular commits and a thorough README.md file
 
-```python
-# Example:
-featured_image_url = 'https://spaceimages-mars.com/image/featured/mars2.jpg'
-```
+Considerations
 
-### Mars Facts
-
-* Visit the Mars Facts webpage [here](https://galaxyfacts-mars.com) and use Pandas to scrape the table containing facts about the planet including Diameter, Mass, etc.
-
-* Use Pandas to convert the data to a HTML table string.
-
-### Mars Hemispheres
-
-* Visit the astrogeology site [here](https://marshemispheres.com/) to obtain high resolution images for each of Mar's hemispheres.
-
-* You will need to click each of the links to the hemispheres in order to find the image url to the full resolution image.
-
-* Save both the image url string for the full resolution hemisphere image, and the Hemisphere title containing the hemisphere name. Use a Python dictionary to store the data using the keys `img_url` and `title`.
-
-* Append the dictionary with the image url string and the hemisphere title to a list. This list will contain one dictionary for each hemisphere.
-
-```python
-# Example:
-hemisphere_image_urls = [
-    {"title": "Valles Marineris Hemisphere", "img_url": "..."},
-    {"title": "Cerberus Hemisphere", "img_url": "..."},
-    {"title": "Schiaparelli Hemisphere", "img_url": "..."},
-    {"title": "Syrtis Major Hemisphere", "img_url": "..."},
-]
-```
-
-- - -
-
-## Step 2 - MongoDB and Flask Application
-
-Use MongoDB with Flask templating to create a new HTML page that displays all of the information that was scraped from the URLs above.
-
-* Start by converting your Jupyter notebook into a Python script called `scrape_mars.py` with a function called `scrape` that will execute all of your scraping code from above and return one Python dictionary containing all of the scraped data.
-
-* Next, create a route called `/scrape` that will import your `scrape_mars.py` script and call your `scrape` function.
-
-  * Store the return value in Mongo as a Python dictionary.
-
-* Create a root route `/` that will query your Mongo database and pass the mars data into an HTML template to display the data.
-
-* Create a template HTML file called `index.html` that will take the mars data dictionary and display all of the data in the appropriate HTML elements. Use the following as a guide for what the final product should look like, but feel free to create your own design.
-
-![final_app_part1.png](Images/final_app.png)
-
-- - -
-
-## Step 3 - Submission
-
-To submit your work to BootCampSpot, create a new GitHub repository and upload the following:
-
-1. The Jupyter Notebook containing the scraping code used.
-
-2. Screenshots of your final application.
-
-3. Submit the link to your new repository to BootCampSpot.
-
-4. Ensure your repository has regular commits and a thorough README.md file
-
-## Hints
-
-* Use Splinter to navigate the sites when needed and BeautifulSoup to help find and parse out the necessary data.
-
-* Use Pymongo for CRUD applications for your database. For this homework, you can simply overwrite the existing document each time the `/scrape` url is visited and new data is obtained.
-
-* Use Bootstrap to structure your HTML template.
-
-## Rubric
-
-[Unit 12 Rubric - Web Scraping Homework - Mission to Mars](https://docs.google.com/document/d/1paGEIFS5yp2VQu6G8F45B4uj1t1t29zL73KEQrD0xpo/edit?usp=sharing)
-
-- - -
-
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+You may use the weather data or choose another dataset. Alternatively, you may use the included cities dataset and pull the images from the assets folder.
+You must use Bootstrap. This includes using the Bootstrap navbar component for the header on every page, the bootstrap table component for the data page, and the Bootstrap grid for responsiveness on the comparison page.
+You must deploy your website to GitHub pages, with the website working on a live, publicly accessible URL as a result.
+Be sure to use a CSS media query for the navigation menu.
+Be sure your website works at all window widths/sizes.
+Feel free to take some liberty in the visual aspects, but keep the core functionality the same.
